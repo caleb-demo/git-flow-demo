@@ -32,6 +32,13 @@ const Counters = () => {
     setCounters(tempCounters);
   }
 
+  const remove = (counter) => {
+    const tempCounters = [...counters];
+    const counterIndex = tempCounters.indexOf(counter);
+    tempCounters.splice(counterIndex, 1);
+    setCounters(tempCounters);
+  }
+
   const subtract = (counter) => {
     const tempCounters = [...counters];
     const counterIndex = tempCounters.indexOf(counter);
@@ -48,6 +55,7 @@ const Counters = () => {
         <Counter
           key={ counter.name }
           counter={ counter }
+          remove={ remove }
           add={ add }
           subtract={ subtract }
           />
